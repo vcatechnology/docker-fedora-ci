@@ -1,4 +1,4 @@
-FROM vcatechnology/docker-fedora:24
+FROM vcatechnology/fedora:24
 MAINTAINER VCA Technology <developers@vcatechnology.com>
 
 # Install useful packages
