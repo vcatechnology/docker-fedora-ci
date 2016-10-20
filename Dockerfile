@@ -7,12 +7,12 @@ RUN dnf install -y \
   git \
   sudo
 
-# create a buildslave user with sudo permissions & no password
-RUN useradd -ms /bin/bash buildslave && \
-    echo "buildslave ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/buildslave && \
+# create a build-serer user with sudo permissions & no password
+RUN useradd -ms /bin/bash build-serer && \
+    echo "build-serer ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/build-serer && \
     echo "#includedir /etc/sudoers.d" >> /etc/sudoers && \
-    chmod 0440 /etc/sudoers.d/buildslave
+    chmod 0440 /etc/sudoers.d/build-serer
 
-# set the buildslave user as default
-USER buildslave
-WORKDIR /home/buildslave
+# set the build-serer user as default
+USER build-serer
+WORKDIR /home/build-serer
