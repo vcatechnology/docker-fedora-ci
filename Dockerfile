@@ -7,6 +7,13 @@ RUN dnf install -y \
   git \
   sudo
 
+# grab the VCA CI Scripts
+RUN dnf install -y wget xz tar && \
+  wget https://tool-chain.vcatechnology.com/release/vca-tool-chain-ci-scripts-latest.tar.xz && \
+  tar -Jxf vca-tool-chain-ci-scripts-latest.tar.xz -C / && \
+  rm vca-tool-chain-ci-scripts-latest.tar.xz && \
+  dnf remove -y wget xz tar
+
 # create a build-server user with sudo permissions & no password
 RUN useradd -ms /bin/bash build-server && \
     echo "build-server ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/build-server && \
