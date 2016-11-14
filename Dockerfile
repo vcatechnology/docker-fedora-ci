@@ -24,7 +24,8 @@ RUN vca-install-package \
   sudo
 
 # Allow sudo to run under Docker
-RUN sed -i 's|^\(Defaults \+ secure_path.*\)|# \1|' /etc/sudoers
+RUN sed -i 's|^\(Defaults \+ secure_path.*\)|# \1|' /etc/sudoers \
+ && sed -i 's|^\(Defaults \+ env_keep *=[^"]*"\)\(.*\)|\1PATH \2|' /etc/sudoers
 
 # Grab the VCA CI Scripts
 RUN vca-install-package wget xz tar && \
