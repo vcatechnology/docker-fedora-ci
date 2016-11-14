@@ -23,6 +23,9 @@ RUN vca-install-package \
   git \
   sudo
 
+# Allow sudo to run under Docker
+RUN sed -i 's|^\(Defaults \+ secure_path.*\)|# \1|' /etc/sudoers
+
 # Grab the VCA CI Scripts
 RUN vca-install-package wget xz tar && \
   wget -q https://tool-chain.vcatechnology.com/release/vca-tool-chain-ci-scripts-latest.tar.xz && \
