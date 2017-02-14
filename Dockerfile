@@ -21,7 +21,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 RUN vca-install-package \
   python \
   git \
-  sudo
+  sudo \
+  rsync
 
 # Allow sudo to run under Docker
 RUN sed -i 's|^\(Defaults \+ secure_path.*\)|# \1|' /etc/sudoers \
