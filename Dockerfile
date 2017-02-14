@@ -22,6 +22,7 @@ RUN vca-install-package \
   python \
   git \
   sudo \
+  openssh \
   rsync
 
 # Allow sudo to run under Docker
