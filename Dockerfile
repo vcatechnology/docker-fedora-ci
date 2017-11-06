@@ -23,7 +23,8 @@ RUN vca-install-package \
   git \
   sudo \
   openssh \
-  rsync
+  rsync \
+  which
 
 # Allow sudo to run under Docker
 RUN sed -i 's|^\(Defaults \+ secure_path.*\)|# \1|' /etc/sudoers \
